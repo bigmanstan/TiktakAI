@@ -165,8 +165,16 @@ public class Board {
                     rootValues.add(point);
                     
                 }
+            }else if ( player == Player.USER){
+                move(point ,Player.USER);
+                scores.add(minimax(depth+1, Player.COMPUTER));
             }
+            board[point.getX()][point.getY()]= Player.NONE;
         }
+        if (player==Player.COMPUTER){
+            return returnMax(scores);
+        }
+        return returnMin(scores);
     }
 
     }
